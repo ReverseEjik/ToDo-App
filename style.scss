@@ -1,0 +1,120 @@
+// Linear Gradient
+// background: rgb(159,1,14);
+// background: linear-gradient(90deg, rgba(159,1,14,1) 0%, rgba(9,30,121,1) 35%, rgba(215,0,142,1) 100%);
+// Linear Gradient //
+
+// Mixins
+@mixin gradient {
+  background-image: linear-gradient(to right, $pink, $purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+// Mixins /
+
+// Variables
+$dark: #374151;
+$darker: #1f2937;
+$darkest: #111827;
+$grey: #6b7280;
+$pink: #ec4899;
+
+$purple: #8b5cf6;
+$light: #eee;
+
+// Variables /
+input,
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: $dark;
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+}
+.todo {
+  padding: 50px;
+}
+.todo__title {
+  &-title {
+    color: $grey;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  &-input {
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 10px;
+    background-color: $darkest;
+    color: $light;
+    max-width: 480px;
+    width: 100%;
+    height: 52px;
+    padding: 16px;
+
+    &::-webkit-input-placeholder {
+      color: $grey;
+    }
+  }
+  &-button {
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    @include gradient();
+  }
+}
+.todo-tasks {
+  &__title {
+    text-align: left;
+    margin-top: 35px;
+    font-weight: 400;
+    color: $grey;
+  }
+  &__list {
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      background-color: $darkest;
+    }
+
+    &-input {
+      width: 70%;
+      font-weight: 500;
+      margin-left: 5px;
+      font-size: 18px;
+      color: $light;
+    }
+  }
+}
+.actions {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 800;
+}
+.edit {
+  @include gradient();
+
+  margin-right: 20px;
+}
+.delete {
+  color: crimson;
+}
+.completed {
+  cursor: pointer;
+  color: #e5e5e5;
+  text-decoration: line-through;
+}
