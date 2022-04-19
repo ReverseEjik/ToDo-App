@@ -22,6 +22,10 @@ body {
           align-items: center;
 }
 
+.cursor {
+  cursor: pointer;
+}
+
 .todo {
   padding: 50px;
 }
@@ -54,7 +58,7 @@ body {
   cursor: pointer;
   padding: 10px;
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 900;
   background-image: -webkit-gradient(linear, left top, right top, from(#ec4899), to(#8b5cf6));
   background-image: linear-gradient(to right, #ec4899, #8b5cf6);
   -webkit-background-clip: text;
@@ -62,10 +66,10 @@ body {
 }
 
 .todo-tasks__title {
+  color: #6b7280;
+  font-weight: 400;
   text-align: left;
   margin-top: 35px;
-  font-weight: 400;
-  color: #6b7280;
 }
 
 .todo-tasks__list-item {
@@ -82,18 +86,33 @@ body {
   background-color: #111827;
 }
 
+.todo-tasks__list-item-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+  text-align: left;
+}
+
 .todo-tasks__list-input {
-  width: 70%;
+  width: 100%;
   font-weight: 500;
   margin-left: 5px;
   font-size: 18px;
   color: #eee;
 }
 
+.todo-tasks__list-item-actions {
+  text-align: right;
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+}
+
 .actions {
   cursor: pointer;
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .edit {
@@ -101,7 +120,7 @@ body {
   background-image: linear-gradient(to right, #ec4899, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .delete {

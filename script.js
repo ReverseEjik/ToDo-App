@@ -3,7 +3,6 @@ const input = document.querySelector('.todo__title-input');
 const todosUL = document.querySelector('.todo-tasks__list');
 
 const todos = JSON.parse(localStorage.getItem('todos'));
-console.log(todos)
 
 
 if (todos) {
@@ -27,21 +26,22 @@ function addTodo(todo) {
 
   if (todoText) {
     const todoEl = document.createElement('div');
+    const todoInputDiv = document.createElement('div');
     const todoInput = document.createElement('input');
     const todoBtns = document.createElement('div');
     const todoEdit = document.createElement('button');
     const todoDel = document.createElement('button');
 
     todoEl.classList.add('todo-tasks__list-item');
+    todoInputDiv.classList.add('todo-tasks__list-item-div')
     todoInput.classList.add('todo-tasks__list-input');
+    todoInput.classList.add('cursor');
     todoInput.setAttribute('readonly', 'readonly');
     todoInput.setAttribute('type', 'text');
     todoBtns.classList.add('todo-tasks__list-item-actions')
     todoDel.classList.add('delete', 'actions')
     todoEdit.classList.add('edit', 'actions')
-    // todoText input value
-    // console.log(todoText)
-
+    
     if (todo && todo.completed) {
       todoEl.classList.add('completed')
     }
@@ -49,7 +49,8 @@ function addTodo(todo) {
     todoDel.innerText = `Delete`;
     todoEdit.innerText = `Edit`;
     todosUL.appendChild(todoEl);
-    todoEl.appendChild(todoInput);
+    todoEl.appendChild(todoInputDiv);
+    todoInputDiv.appendChild(todoInput);
     todoEl.appendChild(todoBtns);
     todoBtns.appendChild(todoEdit);
     todoBtns.appendChild(todoDel);
@@ -70,11 +71,12 @@ function addTodo(todo) {
     // Change task
     todoEdit.addEventListener('click', (e) => {
       if (todoEdit.innerText.toLowerCase() == "edit") {
-
         todoEdit.innerText = "Save";
         todoInput.removeAttribute("readonly");
         todoInput.focus();
+        todoInput.classList.remove('cursor')
       } else {
+        todoInput.classList.add('cursor');
         todoEdit.innerText = "Edit";
         todoInput.setAttribute("readonly", "readonly");
       }
